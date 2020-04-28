@@ -58,6 +58,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        StudentLoginImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context,StudentLogin.class));
+            }
+        });
+
+        StudentLoginTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(context,StudentLogin.class));
+            }
+        });
+
 
     }
 }
