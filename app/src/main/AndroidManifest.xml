@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EditFeedback"></activity>
+        <activity android:name=".AddFeedback" />
         <activity android:name=".StudentHome" />
+        <activity android:name=".ViewFeedback" />
         <activity android:name=".StudentLogin" />
         <activity android:name=".RegisterStudent" />
         <activity android:name=".StaffHome" />

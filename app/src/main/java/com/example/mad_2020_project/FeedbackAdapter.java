@@ -12,17 +12,17 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class ItemAdapter extends ArrayAdapter<Item> {
+public class FeedbackAdapter extends ArrayAdapter<Feedback> {
 
     private Context context;
     private int resource;
-    private List<Item> items;
+    private List<Feedback> feedbacks;
 
-    ItemAdapter(Context context, int resource, List<Item> items){
-        super(context,resource,items);
+    FeedbackAdapter(Context context, int resource, List<Feedback> feedbacks){
+        super(context,resource,feedbacks);
         this.context = context;
         this.resource = resource;
-        this.items = items;
+        this.feedbacks = feedbacks;
     }
 
     @NonNull
@@ -31,16 +31,15 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         LayoutInflater inflater = LayoutInflater.from(context);
         View row = inflater.inflate(resource,parent,false);
 
-        TextView foodName = row.findViewById(R.id.item2);
-        TextView price = row.findViewById(R.id.item4);
-        TextView quantity = row.findViewById(R.id.item6);
-        TextView location = row.findViewById(R.id.item8);
+        TextView name = row.findViewById(R.id.feedback2);
+        TextView email = row.findViewById(R.id.feedback4);
+        TextView comment = row.findViewById(R.id.feedback6);
 
-        Item item = items.get(position);
-        foodName.setText(item.getName());
-        price.setText(item.getPrice());
-        quantity.setText(item.getQuantity());
-        location.setText(item.getLocation());
+
+        Feedback feedback = feedbacks.get(position);
+        name.setText(feedback.getName());
+        email.setText(feedback.getEmail());
+        comment.setText(feedback.getComment());
 
         return row;
     }

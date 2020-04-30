@@ -5,18 +5,21 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class StudentHome extends AppCompatActivity {
 
-    ListView listView;
+    private ListView listView;
+    private Button feedback;
 
     String foodName[] = {"Chicken Rice & Curry","Fish Rice & Curry","Prawn Rice & Curry","Chicken Kottu","Biriyani"};
     String price[] = {"Rs 200.00","Rs 150.00","Rs 220.00","Rs 200.00","Rs 300.00"};
@@ -29,8 +32,16 @@ public class StudentHome extends AppCompatActivity {
         setContentView(R.layout.activity_student_home);
 
         listView = findViewById(R.id.studentHomeListview);
+        feedback = findViewById(R.id.viewfeedbackButton);
         CustomAdapter adapter = new CustomAdapter(this,foodName,img,price,location);
         listView.setAdapter(adapter);
+
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentHome.this,ViewFeedback.class));
+            }
+        });
     }
 }
 
@@ -66,7 +77,6 @@ class CustomAdapter extends ArrayAdapter<String>{
         FoodName.setText(foodName[position]);
         Price.setText(price[position]);
         Location.setText(location[position]);
-
 
         return row;
     }
