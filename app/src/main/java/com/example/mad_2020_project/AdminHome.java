@@ -3,7 +3,6 @@ package com.example.mad_2020_project;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,12 +17,11 @@ import java.util.List;
 
 public class AdminHome extends AppCompatActivity {
 
+    private Button add;
     private ListView listView;
-    private Button addUser;
     Context context;
-    private DbHandler dbHandler;
+    private SellerDbHandler sellerDbHandler;
     private List<Seller> sellers;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,22 +29,22 @@ public class AdminHome extends AppCompatActivity {
         setContentView(R.layout.activity_admin_home);
         context = this;
 
-        dbHandler = new DbHandler(context);
-        listView = findViewById(R.id.ahlistHome);
-        addUser = findViewById(R.id.ahButton);
-
+        sellerDbHandler = new SellerDbHandler(context);
+        add = findViewById(R.id.AddSeller);
+        listView = findViewById(R.id.sellerList);
 
         sellers = new ArrayList<>();
-        sellers = dbHandler.getAllSellers();
 
-        SellerAdapter adapter = new SellerAdapter(context,R.layout.single_view,sellers);
+        sellers = sellerDbHandler.getAllSellers();
 
-        listView.setAdapter(adapter);
+        SellerAdapter sellerAdapter = new SellerAdapter(context,R.layout.single_seller_view,sellers);
 
-        addUser.setOnClickListener(new View.OnClickListener() {
+        listView.setAdapter(sellerAdapter);
+
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context,AddUser.class));
+                startActivity(new Intent(context,AddSeller.class));
             }
         });
 
@@ -56,14 +54,14 @@ public class AdminHome extends AppCompatActivity {
 
                 final Seller seller = sellers.get(position);
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle(seller.getUsername());
-                builder.setMessage(seller.getVenue());
+                builder.setTitle(seller.getName());
+                builder.setMessage(seller.getLocation());
 
 
                 builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        dbHandler.deleteUser(seller.getId());
+                        sellerDbHandler.deleteSeller(seller.getId());
                         startActivity(new Intent(context,AdminHome.class ));
                     }
                 });
@@ -72,7 +70,7 @@ public class AdminHome extends AppCompatActivity {
                 builder.setNeutralButton("Update", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(context,EditUser.class);
+                        Intent intent = new Intent(context,EditSeller.class);
                         intent.putExtra("id",String.valueOf(seller.getId()));
                         startActivity(intent);
                     }
@@ -88,6 +86,5 @@ public class AdminHome extends AppCompatActivity {
                 builder.show();
             }
         });
-
     }
 }

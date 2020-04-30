@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.strictmode.SqliteObjectLeakedViolation;
 
 import androidx.annotation.Nullable;
 
@@ -102,7 +101,7 @@ public class FeedbackHandler extends SQLiteOpenHelper {
 
         Feedback feedback;
         if (cursor != null){
-            cursor.moveToFirst();
+                cursor.moveToFirst();
             feedback = new Feedback(
                     cursor.getInt(0),
                     cursor.getString(1),

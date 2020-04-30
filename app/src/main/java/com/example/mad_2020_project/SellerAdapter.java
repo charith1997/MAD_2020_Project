@@ -31,25 +31,24 @@ public class SellerAdapter extends ArrayAdapter<Seller> {
         LayoutInflater inflater = LayoutInflater.from(context);
         View row = inflater.inflate(resource,parent,false);
 
-        TextView username = row.findViewById(R.id.svUsernametxt);
-        TextView email = row.findViewById(R.id.svEmailtxt);
-        TextView phoneNo = row.findViewById(R.id.svPhoneNotxt);
-        TextView location = row.findViewById(R.id.svLocationtxt);
-        TextView noWorkers = row.findViewById(R.id.svNoWorkerstxt);
-        TextView dateFrom = row.findViewById(R.id.svDateFromtxt);
-        TextView dateTo = row.findViewById(R.id.svDateTotxt);
-        TextView password = row.findViewById(R.id.svPasswordtxt);
+        TextView name = row.findViewById(R.id.single1);
+        TextView email = row.findViewById(R.id.single2);
+        TextView phoneNo = row.findViewById(R.id.single3);
+        TextView location = row.findViewById(R.id.single4);
+        TextView workers = row.findViewById(R.id.single5);
+        TextView fromDate = row.findViewById(R.id.single6);
+        TextView toDate = row.findViewById(R.id.single7);
+        TextView password = row.findViewById(R.id.single8);
 
         Seller seller = sellers.get(position);
-        username.setText(seller.getUsername());
+        name.setText(seller.getName());
         email.setText(seller.getEmail());
-        phoneNo.setText(seller.getMobileNo());
-        location.setText(seller.getVenue());
-        noWorkers.setText(seller.getMobileNo());
-        dateFrom.setText(seller.getDateFrom());
-        dateTo.setText(seller.getDateTo());
-        password.setText(seller.getPswd());
-
+        phoneNo.setText(seller.getPhoneNo());
+        location.setText(seller.getLocation());
+        workers.setText(seller.getWorkers());
+        fromDate.setText(seller.getFromDate());
+        toDate.setText(seller.getToDate());
+        password.setText(seller.getPassword());
 
         return row;
     }

@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EditFeedback"></activity>
+        <activity android:name=".EditSeller"></activity>
+        <activity android:name=".AddSeller" />
+        <activity android:name=".AdminHome" />
+        <activity android:name=".EditFeedback" />
         <activity android:name=".AddFeedback" />
         <activity android:name=".StudentHome" />
         <activity android:name=".ViewFeedback" />
@@ -19,9 +22,6 @@
         <activity android:name=".AddItem" />
         <activity android:name=".StaffLogin" />
         <activity android:name=".AdminLogin" />
-        <activity android:name=".AdminHome" />
-        <activity android:name=".AddUser" />
-        <activity android:name=".EditUser" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

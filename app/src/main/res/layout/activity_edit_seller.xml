@@ -4,38 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditUser">
+    tools:context=".EditSeller">
 
     <ImageView
-        android:id="@+id/EdHome"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:background="@android:color/holo_green_light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:color/holo_green_light"
-        tools:ignore="DuplicateIds" />
-
-    <TextView
-        android:id="@+id/EdHometxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit User"
-        android:textColor="@android:color/white"
-        android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
-
-    <ImageView
-        android:id="@+id/EdUsernameImage"
+        android:id="@+id/EditUsernameImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,14 +15,13 @@
         app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.18"
+        app:layout_constraintVertical_bias="0.151"
         app:srcCompat="@drawable/user" />
 
     <EditText
-        android:id="@+id/EdUsernametxt"
+        android:id="@+id/EditSeller1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
@@ -60,10 +31,10 @@
         app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <ImageView
-        android:id="@+id/EdEmailImage"
+        android:id="@+id/EditEmailImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,11 +42,11 @@
         app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.268"
+        app:layout_constraintVertical_bias="0.243"
         app:srcCompat="@drawable/email" />
 
     <EditText
-        android:id="@+id/EdEmailtxt"
+        android:id="@+id/EditSeller2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -87,10 +58,10 @@
         app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.269" />
+        app:layout_constraintVertical_bias="0.243" />
 
     <ImageView
-        android:id="@+id/EdMobileImage"
+        android:id="@+id/EditMobileImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -98,11 +69,11 @@
         app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358"
+        app:layout_constraintVertical_bias="0.338"
         app:srcCompat="@android:drawable/sym_action_call" />
 
     <EditText
-        android:id="@+id/EdMobiletxt"
+        android:id="@+id/EditSeller3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -114,10 +85,10 @@
         app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.357" />
+        app:layout_constraintVertical_bias="0.336" />
 
     <ImageView
-        android:id="@+id/EdLocationImage"
+        android:id="@+id/EditLocationImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -125,11 +96,11 @@
         app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.447"
+        app:layout_constraintVertical_bias="0.434"
         app:srcCompat="@android:drawable/ic_menu_mylocation" />
 
     <EditText
-        android:id="@+id/EdLocationtxt"
+        android:id="@+id/EditSeller4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -141,10 +112,10 @@
         app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.446" />
+        app:layout_constraintVertical_bias="0.436" />
 
     <ImageView
-        android:id="@+id/EdWorkersImage"
+        android:id="@+id/EditWorkersImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -156,7 +127,7 @@
         app:srcCompat="@drawable/worker" />
 
     <EditText
-        android:id="@+id/EdWorkerstxt"
+        android:id="@+id/EditSeller5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -171,7 +142,7 @@
         app:layout_constraintVertical_bias="0.535" />
 
     <ImageView
-        android:id="@+id/EdDateImage"
+        android:id="@+id/EditDateImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -182,8 +153,9 @@
         app:layout_constraintVertical_bias="0.627"
         app:srcCompat="@drawable/date" />
 
+
     <EditText
-        android:id="@+id/EdDateFrom"
+        android:id="@+id/EditSeller6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -195,10 +167,10 @@
         app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.628" />
+        app:layout_constraintVertical_bias="0.627" />
 
     <EditText
-        android:id="@+id/EdDateTo"
+        android:id="@+id/EditSeller7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -210,40 +182,10 @@
         app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.714" />
-
-    <EditText
-        android:id="@+id/EdPwdtxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="date"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.794"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
-
-    <EditText
-        android:id="@+id/EdRePwtxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Retype Password"
-        android:inputType="date"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.794"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.888" />
+        app:layout_constraintVertical_bias="0.713" />
 
     <ImageView
-        android:id="@+id/EdPwdImage"
+        android:id="@+id/EditPwdImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -254,43 +196,34 @@
         app:layout_constraintVertical_bias="0.803"
         app:srcCompat="@drawable/lock" />
 
-    <ImageView
-        android:id="@+id/EdRePwImage"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.888"
-        app:srcCompat="@drawable/lock" />
-
     <Button
-        android:id="@+id/EditButton"
-        android:layout_width="130dp"
+        android:id="@+id/EditSellerButton"
+        android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_margin="10dp"
         android:background="@android:color/holo_green_light"
-        android:text="UPDATE"
+        android:text="update"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.991" />
+        app:layout_constraintVertical_bias="0.941" />
 
-    <ImageView
-        android:id="@+id/EdMenu"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <EditText
+        android:id="@+id/EditSeller8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.794"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.032"
-        app:srcCompat="@drawable/menu2" />
+        app:layout_constraintVertical_bias="0.803" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

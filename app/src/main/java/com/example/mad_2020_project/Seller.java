@@ -1,37 +1,35 @@
 package com.example.mad_2020_project;
 
-
 public class Seller {
 
-    private int id,workers;
-    private String username,email,mobileNo,venue,pswd,rePswd,dateFrom,dateTo;
+    private int id;
+    private String name,email,phoneNo,location,workers,fromDate,toDate,password;
 
     public Seller(){
+
     }
 
-    public Seller(int id, String username, String email, String mobileNo, String venue, int workers, String dateFrom, String dateTo, String pswd, String rePswd) {
+    public Seller(int id, String name, String email, String phoneNo, String location, String workers, String fromDate, String toDate, String password) {
         this.id = id;
-        this.username = username;
+        this.name = name;
         this.email = email;
-        this.mobileNo = mobileNo;
-        this.venue = venue;
+        this.phoneNo = phoneNo;
+        this.location = location;
         this.workers = workers;
-        this.dateFrom = dateFrom;
-        this.dateTo = dateTo;
-        this.pswd = pswd;
-        this.rePswd = rePswd;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.password = password;
     }
 
-    public Seller(String username, String email, String mobileNo, String venue, int workers, String dateFrom, String dateTo, String pswd, String rePswd) {
-        this.username = username;
+    public Seller(String name, String email, String phoneNo, String location, String workers, String fromDate, String toDate, String password) {
+        this.name = name;
         this.email = email;
-        this.mobileNo = mobileNo;
-        this.venue = venue;
+        this.phoneNo = phoneNo;
+        this.location = location;
         this.workers = workers;
-        this.dateFrom = dateFrom;
-        this.dateTo = dateTo;
-        this.pswd = pswd;
-        this.rePswd = rePswd;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.password = password;
     }
 
     public int getId() {
@@ -42,20 +40,12 @@ public class Seller {
         this.id = id;
     }
 
-    public int getWorkers() {
-        return workers;
+    public String getName() {
+        return name;
     }
 
-    public void setWorkers(int workers) {
-        this.workers = workers;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -66,51 +56,51 @@ public class Seller {
         this.email = email;
     }
 
-    public String getMobileNo() {
-        return mobileNo;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
-    public String getVenue() {
-        return venue;
+    public String getLocation() {
+        return location;
     }
 
-    public void setVenue(String venue) {
-        this.venue = venue;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getPswd() {
-        return pswd;
+    public String getWorkers() {
+        return workers;
     }
 
-    public void setPswd(String pswd) {
-        this.pswd = pswd;
+    public void setWorkers(String workers) {
+        this.workers = workers;
     }
 
-    public String getRePswd() {
-        return rePswd;
+    public String getFromDate() {
+        return fromDate;
     }
 
-    public void setRePswd(String rePswd) {
-        this.rePswd = rePswd;
+    public void setFromDate(String fromDate) {
+        this.fromDate = fromDate;
     }
 
-    public String getDateFrom() {
-        return dateFrom;
+    public String getToDate() {
+        return toDate;
     }
 
-    public void setDateFrom(String dateFrom) {
-        this.dateFrom = dateFrom;
+    public void setToDate(String toDate) {
+        this.toDate = toDate;
     }
 
-    public String getDateTo() {
-        return dateTo;
+    public String getPassword() {
+        return password;
     }
 
-    public void setDateTo(String dateTo) {
-        this.dateTo = dateTo;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
