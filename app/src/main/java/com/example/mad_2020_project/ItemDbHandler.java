@@ -14,10 +14,10 @@ import java.util.List;
 public class ItemDbHandler extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
-    private static final String DB_NAME = "foodItemDB";
-    private static final String TABLE_NAME = "foodItemDB";
+    private static final String DB_NAME = "FoodItemDB";
+    private static final String TABLE_NAME = "FoodItemDB";
 
-    private static final String ITEMID = "itemId";
+    private static final String ID = "id";
     private static final String FOODNAME = "foodName";
     private static final String PRICE = "price";
     private static final String QUANTITY = "quantity";
@@ -32,7 +32,7 @@ public class ItemDbHandler extends SQLiteOpenHelper {
 
         String TABLE_CREATE_QUERY = "CREATE TABLE " + TABLE_NAME + " " +
                 "("
-                + ITEMID +" INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + FOODNAME + " TEXT,"
                 + PRICE + " TEXT,"
                 + QUANTITY + " TEXT,"
@@ -83,12 +83,55 @@ public class ItemDbHandler extends SQLiteOpenHelper {
                 item.setId(cursor.getInt(0));
                 item.setName(cursor.getString(1));
                 item.setPrice(cursor.getString(2));
-                item.setQuantity(cursor.getInt(3));
+                item.setQuantity(cursor.getString(3));
                 item.setLocation(cursor.getString(4));
 
                 items.add(item);
             } while (cursor.moveToNext());
         }
         return items;
+    }
+
+    public void deleteItem(int id){
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(TABLE_NAME,"id =?",new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public Item getSingleItem(int id){
+        SQLiteDatabase db = getWritableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME,new String[]{ID,FOODNAME,PRICE,QUANTITY,LOCATION},ID + "= ?",new String[]{String.valueOf(id)},null,null,null);
+
+        Item item;
+        if (cursor != null){
+            cursor.moveToFirst();
+            item = new Item(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4)
+            );
+            return item;
+        }
+        return null;
+    }
+
+    public int updateSingleItem(Item item){
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(FOODNAME,item.getName());
+        contentValues.put(PRICE,item.getPrice());
+        contentValues.put(QUANTITY,item.getQuantity());
+        contentValues.put(LOCATION,item.getLocation());
+
+        int status = db.update(TABLE_NAME,contentValues,ID +" =?",new String[]{String.valueOf(item.getId())});
+
+        db.close();
+
+        return status;
     }
 }

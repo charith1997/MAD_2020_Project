@@ -2,14 +2,14 @@ package com.example.mad_2020_project;
 
 public class Item {
 
-    private int id,quantity;
-    private String name,price,location;
+    private int id;
+    private String name,quantity,price,location;
 
     public Item(){
 
     }
 
-    public Item(int id, String name, String price, int quantity, String location) {
+    public Item(int id, String name, String price, String quantity, String location) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -17,7 +17,7 @@ public class Item {
         this.location = location;
     }
 
-    public Item(String name, String price, int quantity, String location) {
+    public Item(String name, String price, String quantity, String location) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
@@ -48,11 +48,11 @@ public class Item {
         this.price = price;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 

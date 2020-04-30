@@ -21,12 +21,12 @@ public class AddItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
-        context = this;
         foodName = findViewById(R.id.addItemNameTxt);
         price = findViewById(R.id.addItemPriceTxt);
         quantity = findViewById(R.id.addItemQuantityTxt);
         location = findViewById(R.id.addItemLocationTxt);
         addItem = findViewById(R.id.addItemButton);
+        context = this;
 
         itemDbHandler = new ItemDbHandler(context);
 
@@ -35,7 +35,7 @@ public class AddItem extends AppCompatActivity {
             public void onClick(View v) {
                 String FoodName = foodName.getText().toString();
                 String Price = price.getText().toString();
-                Integer Quantity = Integer.valueOf(quantity.getText().toString());
+                String Quantity = price.getText().toString();
                 String Location = location.getText().toString();
 
                 Item item = new Item(FoodName,Price,Quantity,Location);
