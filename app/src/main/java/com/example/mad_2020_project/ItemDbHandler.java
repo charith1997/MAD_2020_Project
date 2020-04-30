@@ -17,7 +17,7 @@ public class ItemDbHandler extends SQLiteOpenHelper {
     private static final String DB_NAME = "FoodItemDB";
     private static final String TABLE_NAME = "FoodItemDB";
 
-    private static final String ID = "id";
+    private static final String ITEMID = "itemId";
     private static final String FOODNAME = "foodName";
     private static final String PRICE = "price";
     private static final String QUANTITY = "quantity";
@@ -32,7 +32,7 @@ public class ItemDbHandler extends SQLiteOpenHelper {
 
         String TABLE_CREATE_QUERY = "CREATE TABLE " + TABLE_NAME + " " +
                 "("
-                + ID +" INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ITEMID +" INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + FOODNAME + " TEXT,"
                 + PRICE + " TEXT,"
                 + QUANTITY + " TEXT,"
@@ -101,7 +101,7 @@ public class ItemDbHandler extends SQLiteOpenHelper {
     public Item getSingleItem(int id){
         SQLiteDatabase db = getWritableDatabase();
 
-        Cursor cursor = db.query(TABLE_NAME,new String[]{ID,FOODNAME,PRICE,QUANTITY,LOCATION},ID + "= ?",new String[]{String.valueOf(id)},null,null,null);
+        Cursor cursor = db.query(TABLE_NAME,new String[]{ITEMID,FOODNAME,PRICE,QUANTITY,LOCATION},ITEMID + "= ?",new String[]{String.valueOf(id)},null,null,null);
 
         Item item;
         if (cursor != null){
@@ -128,7 +128,7 @@ public class ItemDbHandler extends SQLiteOpenHelper {
         contentValues.put(QUANTITY,item.getQuantity());
         contentValues.put(LOCATION,item.getLocation());
 
-        int status = db.update(TABLE_NAME,contentValues,ID +" =?",new String[]{String.valueOf(item.getId())});
+        int status = db.update(TABLE_NAME,contentValues,ITEMID +" =?",new String[]{String.valueOf(item.getId())});
 
         db.close();
 
