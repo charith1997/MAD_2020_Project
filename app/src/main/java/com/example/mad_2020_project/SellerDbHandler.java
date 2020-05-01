@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< Updated upstream:app/src/main/java/com/example/mad_2020_project/SellerDbHandler.java
 public class SellerDbHandler extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
@@ -29,10 +30,34 @@ public class SellerDbHandler extends SQLiteOpenHelper {
 
     public SellerDbHandler(@Nullable Context context) {
         super(context, DB_NAME, null, VERSION);
+=======
+class DbHandler extends SQLiteOpenHelper {
+
+    // If you change the database schema, you must increment the database version.
+    public static final int VERSION=1;
+    public static final String DATABASE_NAME="todo";
+    public static final String TABLE_NAME="todo";
+
+    private static final String ID="id";
+    private static final String Name="name";
+    private static final String Price="price";
+    private static final String Started="started";
+    private static final String Finished="finished";
+
+
+    public DbHandler(Context context) {
+
+        super(context, DATABASE_NAME, null, VERSION);
+    }
+
+    public DbHandler(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+        super(context, name, factory, version);
+>>>>>>> Stashed changes:app/src/main/java/com/example/mad_2020_project/DbHandler.java
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+<<<<<<< Updated upstream:app/src/main/java/com/example/mad_2020_project/SellerDbHandler.java
 
         String TABLE_CREATE_QUERY = "CREATE TABLE " + TABLE_NAME + " " +
                 "("
@@ -47,24 +72,40 @@ public class SellerDbHandler extends SQLiteOpenHelper {
                 + PASSWORD + " TEXT" +
                 ");";
 
+=======
+        String TABLE_CREATE_QUERY="CREATE TABLE " + TABLE_NAME + "" +
+                "("
+                + ID + "INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + Name + "TEXT,"
+                + Price + "String,"
+                + Started + "TEXT,"
+                + Finished + "TEXT" +
+                ");";
+
+            /* CREATE TABLE Dbhandler (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, price STRING
+            started TEXT,finished TEXT);
+             */
+
+>>>>>>> Stashed changes:app/src/main/java/com/example/mad_2020_project/DbHandler.java
         db.execSQL(TABLE_CREATE_QUERY);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
-        String DROP_TABLE_QUERY = "DROP TABLE IF EXISTS " + TABLE_NAME;
-        // Drop older table if existed
-        db.execSQL(DROP_TABLE_QUERY);
-        // Create table again
+        String Drop_TABLE_QUERY="DROP TABLE IF EXISTS " + TABLE_NAME;
+        db.execSQL(Drop_TABLE_QUERY);
         onCreate(db);
     }
 
-    public void addSeller(Seller seller){
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+    public void additems(ToDo todo) {
+        SQLiteDatabase sqLiteDatabase=getWritableDatabase();
 
-        ContentValues contentValues = new ContentValues();
+        ContentValues contentValues=new ContentValues();
 
+        contentValues.put(Name, todo.getName());
+        contentValues.put(Price, todo.getPrice());
+
+<<<<<<< Updated upstream:app/src/main/java/com/example/mad_2020_project/SellerDbHandler.java
         contentValues.put(NAME,seller.getName());
         contentValues.put(EMAIL,seller.getEmail());
         contentValues.put(PHONENO,seller.getPhoneNo());
@@ -73,13 +114,15 @@ public class SellerDbHandler extends SQLiteOpenHelper {
         contentValues.put(FROMDATE,seller.getFromDate());
         contentValues.put(TODATE,seller.getToDate());
         contentValues.put(PASSWORD,seller.getPassword());
+=======
+        //save to table
+        sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
+>>>>>>> Stashed changes:app/src/main/java/com/example/mad_2020_project/DbHandler.java
 
-        //  Save to Table
-        sqLiteDatabase.insert(TABLE_NAME,null,contentValues);
-        // Close Database
         sqLiteDatabase.close();
     }
 
+<<<<<<< Updated upstream:app/src/main/java/com/example/mad_2020_project/SellerDbHandler.java
     public List<Seller> getAllSellers(){
         List<Seller> sellers = new ArrayList();
         SQLiteDatabase db = getReadableDatabase();
@@ -103,10 +146,17 @@ public class SellerDbHandler extends SQLiteOpenHelper {
                 sellers.add(seller);
             } while (cursor.moveToNext());
         }
+=======
+    public int count() {
+        SQLiteDatabase db=getReadableDatabase();
+        String query="SELECT * FROM " + TABLE_NAME;
+>>>>>>> Stashed changes:app/src/main/java/com/example/mad_2020_project/DbHandler.java
 
-        return sellers;
+        Cursor cursor=db.rawQuery(query, null);
+        return cursor.getCount();
     }
 
+<<<<<<< Updated upstream:app/src/main/java/com/example/mad_2020_project/SellerDbHandler.java
     public void deleteSeller(int id){
         SQLiteDatabase db = getWritableDatabase();
         db.delete(TABLE_NAME,"id =?",new String[]{String.valueOf(id)});
@@ -133,10 +183,32 @@ public class SellerDbHandler extends SQLiteOpenHelper {
                     cursor.getString(8)
             );
             return seller;
+=======
+    //get all todos into a list
+    public List<ToDo> getAllToDos() {
+        List<ToDo> toDos=new ArrayList();
+        Cursor cursor;
+        try (SQLiteDatabase db=getReadableDatabase()) {
+            String query="SELECT * FROM " + TABLE_NAME;
+
+            cursor=db.rawQuery(query, null);
         }
-        return null;
+
+        if (cursor.moveToFirst()) {
+            do {
+                ToDo todo=new ToDo();
+                todo.setId(cursor.getInt(0));
+                todo.setName(cursor.getString(1));
+                todo.setPrice(cursor.getString(2));
+                todo.setStarted(cursor.getLong(3));
+                todo.setFinished(cursor.getLong(4));
+            } while (cursor.moveToNext());
+>>>>>>> Stashed changes:app/src/main/java/com/example/mad_2020_project/DbHandler.java
+        }
+        return toDos;
     }
 
+<<<<<<< Updated upstream:app/src/main/java/com/example/mad_2020_project/SellerDbHandler.java
     public int updateSingleSeller(Seller seller){
         SQLiteDatabase db = getWritableDatabase();
 
@@ -153,8 +225,11 @@ public class SellerDbHandler extends SQLiteOpenHelper {
 
         int status = db.update(TABLE_NAME,contentValues,ID +" =?",new String[]{String.valueOf(seller.getId())});
 
+=======
+    public void deleteitem(int id) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.delete(TABLE_NAME,ID +"=?",new String[]{String.valueOf(id)});
+>>>>>>> Stashed changes:app/src/main/java/com/example/mad_2020_project/DbHandler.java
         db.close();
-
-        return status;
     }
 }

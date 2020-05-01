@@ -1,7 +1,10 @@
 package com.example.mad_2020_project;
 
+<<<<<<< Updated upstream
 import androidx.appcompat.app.AppCompatActivity;
 
+=======
+>>>>>>> Stashed changes
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+<<<<<<< Updated upstream
 public class EditItem extends AppCompatActivity {
 
     private EditText foodName,price,quantity,location;
@@ -16,11 +20,27 @@ public class EditItem extends AppCompatActivity {
     private ItemDbHandler itemDbHandler;
     Context context;
 
+=======
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+
+
+public class EditItem extends AppCompatActivity {
+
+    private Button button;
+    private EditText name, price;
+    private DbHandler dbhandler;
+    Context context;
+
+
+>>>>>>> Stashed changes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_item);
 
+<<<<<<< Updated upstream
         context = this;
         itemDbHandler = new ItemDbHandler(context);
 
@@ -50,7 +70,27 @@ public class EditItem extends AppCompatActivity {
                 int state = itemDbHandler.updateSingleItem(item);
                 System.out.println(state);
                 startActivity(new Intent(context,StaffHome.class));
+=======
+        button=(Button) findViewById(R.id.btn5_madu);
+        name=(EditText) findViewById(R.id.edtxt3_madu);
+        price=(EditText) findViewById(R.id.edtxt4_madu);
+        context=this;
+
+        final ArrayList id=getIntent().getStringArrayListExtra("id");
+        System.out.println(id);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),Foods.class);
+                startActivity(intent);
+
+>>>>>>> Stashed changes
             }
         });
     }
 }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

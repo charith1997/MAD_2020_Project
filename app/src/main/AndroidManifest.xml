@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< Updated upstream
         <activity android:name=".EditItem"></activity>
         <activity android:name=".EditSeller" />
         <activity android:name=".AddSeller" />
@@ -23,6 +24,18 @@
         <activity android:name=".AddItem" />
         <activity android:name=".StaffLogin" />
         <activity android:name=".AdminLogin" />
+=======
+        <activity android:name=".singlemadu"></activity>
+        <activity android:name=".Foods" />
+        <activity android:name=".FoodItems" />
+        <activity android:name=".FoodItem" />
+        <activity android:name=".ViewItem" />
+        <activity android:name=".DeleteItem" />
+        <activity android:name=".SearchItem" />
+        <activity android:name=".EditItem" />
+        <activity android:name=".AddActivity" />
+        <activity android:name=".OwnerHome" />
+>>>>>>> Stashed changes
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
